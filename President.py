@@ -14,7 +14,28 @@ class President:
         self.prevPos = line[5]
         self.Polparty = line[6]
         self.vicePres = line[7]
-        self.termLength =
-    def datetimeDate(self,date):
-        return datetime.datetime.strptime(date,"%B %d, %Y")
+        self.terms = self.termLength()
+
+    def datetimeDate(self, date):
+        return datetime.datetime.strptime(date, "%B %d, %Y")
+
     def termLength(self):
+        if self.name == "Donald Trump":
+            return 1
+        timeSecs = self.dateEnd - self.dateStart
+        tdays = timeSecs.days
+        if tdays > ((365 * 12) + 10):
+            return 4
+        elif tdays > ((365 * 8) + 10):
+            return 3
+        elif tdays > ((365 * 4) + 10):
+            return 2
+        else:
+            return 1
+
+    def __str__(self):
+        return f"President {self.presNum} was {self.name}." \
+               f"Their party association was {self.Polparty}" \
+               f"Before they were Presdient, they were the {self.prevPos}" \
+               f"Their Vice President was {self.vicePres}" \
+               f"They served {str(self.terms)} terms."

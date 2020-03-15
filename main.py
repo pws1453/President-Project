@@ -9,6 +9,12 @@ import President
 
 def main():
     with open("C:\\Users\\Preston\\PycharmProjects\\gpaPresProj\\assets\\us_presidents.csv") as csvfile:
+        demcount = 0
+        dems = set()
+        recount = 0
+        res = set()
+        othercount = 0
+        others = set()
         reader = csv.reader(csvfile)
         count = 0
         for row in reader:
@@ -16,6 +22,6 @@ def main():
                 pass
             else:
                 curPres = President.President(row)
-                print(curPres)
+                if curPres.Polparty == ""
             count += 1
 main()
